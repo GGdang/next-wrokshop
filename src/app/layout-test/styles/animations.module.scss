@@ -1,0 +1,74 @@
+// 變量定義
+$primary-color: #3b82f6;
+$secondary-color: #1e40af;
+$animation-duration: 0.5s;
+$animation-timing: ease-in-out;
+
+// 最外層的 .title
+.title {
+  font-size: 1rem;
+  color: #333;
+}
+
+// 主容器
+.container {
+  padding: 1rem;
+  background-color: #f8fafc;
+
+  // 標題樣式
+  .title {
+    font-size: 2rem;
+    color: blue;
+  }
+
+  // 內容區塊
+  .content {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    // 動畫效果
+    &.fadeIn {
+      animation: fadeIn $animation-duration $animation-timing;
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+
+    // 另一個巢狀的 .title
+    .title {
+      font-size: 1.5rem;
+      color: green;
+    }
+  }
+
+  // 按鈕樣式
+  .button {
+    padding: 0.5rem 1rem;
+    background-color: $primary-color;
+    color: white;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+}
+
+// 測試用的內容區塊
+.content {
+  padding: 1rem;
+}
+
+// 定義動畫
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

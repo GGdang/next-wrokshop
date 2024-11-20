@@ -7,7 +7,9 @@ const getDatabaseData = () => {
   return {
     user: 'John Doe',
     role: 'Admin',
-    lastLogin: new Date().toISOString()
+    lastLogin: new Date().toISOString(),
+    // 添加一個隨機數來證明每次都是新的數據
+    requestId: Math.random().toString(36).substring(7)
   }
 }
 
@@ -22,6 +24,9 @@ export default async function RenderTestPage() {
       {/* 1. Server Component */}
       <div className="border p-4 rounded-lg">
         <h2 className="text-xl font-bold mb-4">1. Server Component:</h2>
+        <div className="text-sm text-blue-500 mb-2">
+          Request ID: {data.requestId} （每次進入頁面都會不同）
+        </div>
         <ServerComponent data={data} />
       </div>
 
