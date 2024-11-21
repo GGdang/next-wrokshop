@@ -35,6 +35,9 @@ export default function Home() {
               <li className='text-green-500'>
                 <Link href='/layout-test'>layout + template 渲染比較</Link>
               </li>
+              <li className='text-green-500'>
+                <Link href='/navigation-examples'>navigation 方式比較</Link>
+              </li>
             </ul>
           </div>
 
