@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Home() {
@@ -111,6 +110,42 @@ export default function Home() {
               <li>
                 <Link href='/parallel-routes-demo' className='text-blue-500 hover:underline'>
                   範例：並行路由與複雜布局
+                </Link>
+              </li>
+            </ul>
+          </section>
+
+          {/* 10. Intercepting Routes */}
+          <section>
+            <h2 className='text-xl font-bold mb-3'>10. Intercepting Routes</h2>
+            <ul className='space-y-2'>
+              <li>
+                <Link href='/intercepting-routes-demo' className='text-blue-500 hover:underline'>
+                  範例：拦截路由與模態對話框
+                </Link>
+              </li>
+            </ul>
+          </section>
+
+          {/* 11. api routes  */}
+          <section>
+            <h2 className='text-xl font-bold mb-3'>11. api routes</h2>
+            <ul className='space-y-2'>
+              <li>
+                <Link href='/api-routes-demo' className='text-blue-500 hover:underline'>
+                  範例：api routes
+                </Link>
+              </li>
+            </ul>
+          </section>
+
+          {/* 12. middleware */}
+          <section>
+            <h2 className='text-xl font-bold mb-3'>12. middleware</h2>
+            <ul className='space-y-2'>
+              <li>
+                <Link href='/middleware-demo' className='text-blue-500 hover:underline'>
+                  範例：middleware
                 </Link>
               </li>
             </ul>
