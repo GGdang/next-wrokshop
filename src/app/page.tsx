@@ -150,6 +150,18 @@ export default function Home() {
               </li>
             </ul>
           </section>
+
+          {/* 13. Data Fetching */}
+          <section>
+            <h2 className='text-xl font-bold mb-3'>13. Data Fetching</h2>
+            <ul className='space-y-2'>
+              <li>
+                <Link href='/data-fetching-demo' className='text-blue-500 hover:underline'>
+                  範例：資料獲取
+                </Link>
+              </li>
+            </ul>
+          </section>
         </div>
       </div>
     </main>
