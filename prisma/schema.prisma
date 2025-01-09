@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model LibrarySeats {
+  id          Int      @id @default(autoincrement())
+  areaId      Int      @map("area_id")
+  areaName    String   @map("area_name")
+  branchName  String   @map("branch_name")
+  floorName   String   @map("floor_name")
+  freeCount   Int      @map("free_count")
+  totalCount  Int      @map("total_count")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @default(now()) @map("updated_at")
+
+  @@map("library_seats")
+}
