@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { unstable_cache } from 'next/cache'
 import { queries } from '@/lib/db'
 const getCachedSeats = unstable_cache(
@@ -6,10 +8,13 @@ const getCachedSeats = unstable_cache(
   },
   ['library-seats'], // 緩存鍵
   {
-    revalidate: 30, // 30 秒後重新驗證
-    tags: ['seats'], // 可用於手動使緩存失效
+    revalidate: 10, // 10 秒後重新驗證
   }
 )
+
+// const getCachedSeats = async () => {
+//   return await queries.getAllSeats()
+// }
 
 export default async function OrmCachingDemo() {
   const seats = await getCachedSeats()
@@ -23,7 +28,7 @@ export default async function OrmCachingDemo() {
         <h2 className='text-xl font-semibold mb-4'>緩存機制說明</h2>
         <ul className='list-disc list-inside space-y-2 text-gray-700'>
           <li>使用 Next.js 的 unstable_cache API 緩存數據庫查詢結果</li>
-          <li>緩存時間設置為 1 小時（3600 秒）</li>
+          <li>緩存時間設置為 30 秒</li>
           <li>使用 'seats' 標籤，可通過 revalidateTag 手動使緩存失效</li>
           <li>適用於不經常變化的數據</li>
           <li>可以提高頁面載入速度並減少數據庫負載</li>

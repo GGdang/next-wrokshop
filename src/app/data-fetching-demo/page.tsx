@@ -61,12 +61,12 @@ export default function DataFetchingDemo() {
             >
               client actions and mutations 範例
             </Link>
-            <Link
+            {/* <Link
               href='/data-fetching-demo/taint-demo'
               className='bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 mr-4 inline-block'
             >
               Taint 示例
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

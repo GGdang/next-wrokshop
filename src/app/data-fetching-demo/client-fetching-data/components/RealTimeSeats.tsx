@@ -9,7 +9,7 @@ interface Seat {
   totalCount: number
 }
 export function RealTimeSeats() {
-  const [seats, setSeats] = useState<Seat[] | null>(null)
+  const [activity, setActivity] = useState<Seat[] | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null)
   const [isLoading, setIsLoading] = useState(false)
@@ -18,19 +18,18 @@ export function RealTimeSeats() {
     setIsLoading(true)
     try {
       // 使用新的 API 路徑
-      const res = await fetch('/api/seats')
+      const res = await fetch('/api/taipei-data')
       if (!res.ok) {
         const errorData = await res.json()
         throw new Error(errorData.error || `HTTP error! status: ${res.status}`)
       }
       const data = await res.json()
-
       // 如果 API 調用失敗，使用模擬數據
       if (!data || data.error) {
         console.warn('Using mock data due to API error:', data?.error)
-        setSeats([])
+        setActivity([])
       } else {
-        setSeats(data)
+        setActivity(data.result.results)
       }
 
       setLastUpdated(new Date())
@@ -38,7 +37,7 @@ export function RealTimeSeats() {
     } catch (err) {
       console.error('Error fetching seats:', err)
       // 在錯誤時使用模擬數據
-      setSeats([])
+      setActivity([])
       setLastUpdated(new Date())
       setError(err instanceof Error ? err.message : '獲取數據時發生錯誤')
     } finally {
@@ -68,7 +67,7 @@ export function RealTimeSeats() {
     )
   }
 
-  if (!seats) {
+  if (!activity) {
     return (
       <div className='p-4 flex items-center justify-center'>
         <div className='animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900'></div>
@@ -106,19 +105,13 @@ export function RealTimeSeats() {
           isLoading ? 'opacity-50' : ''
         }`}
       >
-        {seats.map((seat) => (
-          <div key={seat.areaId} className='p-4 bg-white border rounded-lg shadow-sm hover:shadow-md transition-shadow'>
-            <h3 className='font-medium'>
-              {seat.branchName} - {seat.areaName}
-            </h3>
-            <p className='text-gray-600'>樓層：{seat.floorName}</p>
-            <p className='mt-2'>
-              可用座位：
-              <span className={`font-medium ${seat.freeCount > 5 ? 'text-green-600' : 'text-orange-600'}`}>
-                {seat.freeCount}
-              </span>{' '}
-              / {seat.totalCount}
-            </p>
+        {activity.map((item) => (
+          <div key={item._id} className='p-4 bg-white border rounded-lg shadow-sm hover:shadow-md transition-shadow'>
+            <h3 className='font-medium'>{item['廠商']}</h3>
+            <p className='text-gray-600'>活動名稱：{item['活動名稱']}</p>
+            <p className='text-gray-600'>活動類型：{item['活動類型']}</p>
+            <p className='text-gray-600'>租用起始日 ：{item['租用起始日']}</p>
+            <p className='text-gray-600'>租用結束日：{item['租用結束日']}</p>
           </div>
         ))}
       </div>

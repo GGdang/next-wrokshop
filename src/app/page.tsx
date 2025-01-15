@@ -162,18 +162,6 @@ export default function Home() {
               </li>
             </ul>
           </section>
-
-          {/* 14. Data Actions & Mutations */}
-          <section>
-            <h2 className='text-xl font-bold mb-3'>14. Data Actions & Mutations</h2>
-            <ul className='space-y-2'>
-              <li>
-                <Link href='/server-actions-demo' className='text-blue-500 hover:underline'>
-                  範例：資料操作
-                </Link>
-              </li>
-            </ul>
-          </section>
         </div>
       </div>
     </main>
