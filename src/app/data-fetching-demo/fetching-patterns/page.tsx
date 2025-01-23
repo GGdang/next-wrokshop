@@ -14,7 +14,7 @@ async function getLibraryInfo(branchName: string) {
 }
 
 // 預加載函數
-export const preloadSeats = (branchName: string) => {
+const preloadSeats = (branchName: string) => {
   void queries.getSeatsByBranch(branchName)
 }
 
@@ -150,7 +150,7 @@ export default function FetchingPatterns() {
         <div className="bg-gray-50 p-6 rounded-lg">
           <pre className="text-sm overflow-x-auto">
             {`// 預加載模式
-export const preloadSeats = (branchName: string) => {
+const preloadSeats = (branchName: string) => {
   void queries.getSeatsByBranch(branchName)
 }
 
