@@ -29,7 +29,7 @@ export default async function OrmCachingDemo() {
         <ul className='list-disc list-inside space-y-2 text-gray-700'>
           <li>使用 Next.js 的 unstable_cache API 緩存數據庫查詢結果</li>
           <li>緩存時間設置為 30 秒</li>
-          <li>使用 'seats' 標籤，可通過 revalidateTag 手動使緩存失效</li>
+          <li>使用 seats 標籤，可通過 revalidateTag 手動使緩存失效</li>
           <li>適用於不經常變化的數據</li>
           <li>可以提高頁面載入速度並減少數據庫負載</li>
         </ul>

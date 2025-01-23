@@ -1,19 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
 export default function NavigationDemo() {
-  const router = useRouter()
-
-  // 使用 History API 的範例
-  const handleHistoryPush = () => {
-    window.history.pushState(null, '', '/navigation-demo/history-pushed')
-  }
-
   useEffect(() => {
     // 監聽 popstate 事件
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const handlePopState = (event: PopStateEvent) => {
       console.log('Location changed:', window.location.pathname)
     }
@@ -42,7 +35,6 @@ export default function NavigationDemo() {
                 </Link>
               </div>
             </div>
-
             {/* useRouter Hook */}
             <div className='relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm hover:border-gray-400'>
               <div className='flex flex-col items-start'>
@@ -56,7 +48,6 @@ export default function NavigationDemo() {
                 </Link>
               </div>
             </div>
-
             {/* redirect 函數 */}
             <div className='relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm hover:border-gray-400'>
               <div className='flex flex-col items-start'>
@@ -70,21 +61,6 @@ export default function NavigationDemo() {
                 </Link>
               </div>
             </div>
-
-            {/* History API
-            <div className='relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm hover:border-gray-400'>
-              <div className='flex flex-col items-start'>
-                <h3 className='text-lg font-medium text-gray-900'>History API</h3>
-                <p className='mt-1 text-sm text-gray-500'>使用瀏覽器原生 History API 進行導航</p>
-                <Link
-                  href='/navigation-demo/history-page'
-                  className='mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700'
-                >
-                  查看示例
-                </Link>
-              </div>
-            </div>
-            */}
           </div>
         </div>
       </div>

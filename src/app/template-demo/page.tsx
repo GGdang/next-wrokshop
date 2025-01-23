@@ -1,14 +1,10 @@
-import Link from 'next/link'
-
 export default function TemplateDemo() {
   return (
     <div className='p-8'>
       <h1 className='text-3xl font-bold mb-8'>Template vs Layout 示例</h1>
 
       <div className='space-y-6'>
-        <p className='text-gray-600'>
-          這個示例展示了 Template 和 Layout 在狀態管理和渲染行為上的差異。
-        </p>
+        <p className='text-gray-600'>這個示例展示了 Template 和 Layout 在狀態管理和渲染行為上的差異。</p>
 
         <div className='bg-gray-50 p-6 rounded-lg space-y-4'>
           <h2 className='text-xl font-semibold'>Layout 特點：</h2>

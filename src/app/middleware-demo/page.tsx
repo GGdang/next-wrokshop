@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 export default function MiddlewareDemo() {
   const [headers, setHeaders] = useState<Record<string, string>>({})
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [response, setResponse] = useState<any>(null)
   const [loading, setLoading] = useState(false)
 
@@ -14,7 +15,7 @@ export default function MiddlewareDemo() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer test-token'  // 添加認證 token
+          Authorization: 'Bearer test-token', // 添加認證 token
         },
         body: JSON.stringify({
           message: '測試中間件',

@@ -1,18 +1,6 @@
 import Link from 'next/link'
 
 export default function ServerActionsDemo() {
-  // 方法 1：直接在組件中定義 Server Action
-  async function updateUser(formData: FormData) {
-    'use server'
-
-    // 這裡的代碼在服務器上執行
-    const name = formData.get('name')
-    const email = formData.get('email')
-
-    console.log('Updating user on server:', { name, email })
-    // 可以直接訪問數據庫或其他服務器資源
-  }
-
   return (
     <div className='p-4'>
       <h1 className='text-2xl font-bold mb-4'>Server Actions Demo</h1>

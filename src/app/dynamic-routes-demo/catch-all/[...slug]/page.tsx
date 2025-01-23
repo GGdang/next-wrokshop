@@ -14,8 +14,8 @@ export default async function CatchAllRoute({ params }: { params: Promise<{ slug
           <div className='mt-4 space-y-4'>
             <p className='text-sm text-gray-600'>使用 [...slug] 語法可以捕獲所有路徑段。例如：</p>
             <ul className='list-disc pl-5 space-y-2 text-gray-600'>
-              <li>/catch-all/a/b/c 將捕獲 ['a', 'b', 'c']</li>
-              <li>/catch-all/x/y 將捕獲 ['x', 'y']</li>
+              <li>/catch-all/a/b/c 將捕獲 [a, b, c]</li>
+              <li>/catch-all/x/y 將捕獲 [x, y]</li>
               <li>注意：/catch-all 將返回 404 錯誤</li>
             </ul>
             <div>

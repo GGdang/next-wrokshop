@@ -6,25 +6,21 @@ import { experimental_taintUniqueValue } from 'react'
 export async function updateUser(formData: FormData) {
   const name = formData.get('name')
   const email = formData.get('email')
-  
+
   // 在服務器端處理敏感數據
   const sensitiveData = {
     name,
     email,
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   }
-  
+
   // 標記敏感數據
-  experimental_taintUniqueValue(
-    '電子郵件不能傳遞到客戶端',
-    sensitiveData,
-    sensitiveData.email
-  )
-  
+  experimental_taintUniqueValue('電子郵件不能傳遞到客戶端', sensitiveData, sensitiveData.email)
+
   // 返回安全的數據
   return {
     success: true,
-    name: sensitiveData.name
+    name: sensitiveData.name,
   }
 }
 

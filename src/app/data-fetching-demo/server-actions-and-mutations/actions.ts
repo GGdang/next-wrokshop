@@ -46,6 +46,7 @@ export async function createSeat(data: CreateSeatData) {
       success: true,
       data: newSeat,
     }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error('建立座位時發生錯誤:', error)
     return {

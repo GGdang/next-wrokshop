@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { NextRequest, NextResponse } from 'next/server'
 import { MiddlewareHandler } from '../types'
 
@@ -7,7 +8,7 @@ export const apiHandler: MiddlewareHandler = (request: NextRequest) => {
     return null
   }
 
-  const token = request.headers.get('authorization')?.replace('Bearer ', '')
+  // const token = request.headers.get('authorization')?.replace('Bearer ', '')
   // if (!token) {
   //   console.log('未授權的 API 請求')
   //   return new NextResponse(
